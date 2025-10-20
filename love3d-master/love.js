@@ -69,3 +69,27 @@ app.startAnimation((time) => {
 //   // text.position.set(-max.x / 2, -max.y / 2, -1);
 //   // text.material.color = new THREE.Color(250 / 255.0, 179 / 255.0, 205 / 255.0);
 // });
+// --- thêm chức năng đổi chữ và ẩn nút ---
+const input = document.getElementById("textInput");
+const button = document.getElementById("applyText");
+
+button.addEventListener("click", () => {
+  const newText = input.value.trim();
+  if (newText === "") return alert("Vui lòng nhập chữ!");
+
+  // Xóa chữ cũ khỏi scene
+  app.scene.remove(text.mesh);
+
+  // Tạo text mới
+  const newTextObj = new TextPrimitive(newText);
+  newTextObj.onLoad = () => {
+    newTextObj.geometry.computeBoundingBox();
+    const max = newTextObj.geometry.boundingBox.max;
+    newTextObj.position.set(-max.x / 2, -max.y / 2, -1);
+    newTextObj.material.color = new THREE.Color(250 / 255, 179 / 255, 205 / 255);
+  };
+  app.addView(newTextObj);
+
+  // Ẩn phần input và nút
+  document.getElementById("controls").style.display = "none";
+});
