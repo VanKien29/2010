@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
 
-		<script type="importmap">
-			{
-				"imports": {
-					"three": "https://unpkg.com/three@0.157.0/build/three.module.js",
-					"three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
-				}
-			}
-		</script>
-  <script type="module" src="./love.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+        }
+      }
+    </script>
 
-  <title>Heart</title>
-</head>
-<body>
-
-</body>
+    <script type="module" src="./love.js"></script>
+    <title>Heart</title>
+    <style>
+      #controls {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 8px 12px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+      input,
+      button {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-right: 4px;
+      }
+      button {
+        background: #ff9fba;
+        cursor: pointer;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ✅ giao diện đổi text -->
+    <div id="controls">
+      <input type="text" id="textInput" placeholder="Nhập chữ mới..." />
+      <button id="applyText">Xác nhận</button>
+    </div>
+  </body>
 </html>
